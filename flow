@@ -1,0 +1,15 @@
+Our Capston Voting App Blueprint (Flow)
+
+Begins with the student opening up the browser and navigating to the capstone voting app url
+The webpage loads on the welcome screen showing the name of the page, and a welcome, enter, button
+The student now moves the cursor over the text input field and enters their idea for the capstone voting 
+In return, the computer appends the suggestion to the growing list of other user input data
+
+
+The next page of our website will deal with the voting aspect of our app. It begins with the student viewing all available ideas to vote for, and clicking on the thumbs up icon on the corresponding idea of choice, to indicate their vote
+The computer records the number of votes and with that, the ideas descend and ascend accordingly
+Now, the instructor side will interupt with further directions
+
+The ranking portion begins with the screen populated with the next, voted on ideas to be ranked in order by the user
+The user ranks the ideas from 1 to the max
+Similar to golf ranking, the lowest number representing the best idea
