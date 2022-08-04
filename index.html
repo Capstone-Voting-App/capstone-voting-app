@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Capstone Voting App</title>
+    <title>Conceptual Model</title>
 </head>
 <body>
+<h1>Conceptual Model</h1>
+<h2>Entities & Attributes</h2>
+<h3>profile</h3>
+<ul>
+    <li>profileId (PK)</li>
+    <li>profileActivationToken</li>
+    <li>profileCohort</li>
+    <li>profileEmail</li>
+</ul>
+<h3>idea</h3>
+<ul>
+    <li>ideaId (PK)</li>
+    <li>ideaProfileId (FK)</li>
+    <li>ideaArchived</li>
+    <li>ideaDescription</li>
+    <li>ideaName</li>
+</ul>
+<h3>vote</h3>
+<ul>
+    <li>voteIdeaId (FK)</li>
+    <li>voteProfileId (FK)</li>
+</ul>
+<h3>rank</h3>
+<ul>
+    <li>rankIdeaId (FK)</li>
+    <li>rankProfileId (FK)</li>
+    <li>rankValue</li>
+</ul>
+<h2>Relations</h2>
+<ul>
+    <li>One profile can vote many times (1 to many)</li>
+    <li>A profile can also rank multiple times, as well (1 to many)</li>
+    <li>An idea can be voted on many times (1 to many)</li>
+    <li>In addition to it (the single idea) being ranked several times (1 to many)</li>
+</ul>
 
 </body>
 </html>
