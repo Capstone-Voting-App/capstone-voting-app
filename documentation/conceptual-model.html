@@ -13,13 +13,19 @@
     <li>profileActivationToken</li>
     <li>profileCohort</li>
     <li>profileEmail</li>
+    <li>profileHash</li>
+    <li>profileIsInstructor</li>
+    <li>profileName</li>
 </ul>
 <h3>idea</h3>
 <ul>
     <li>ideaId (PK)</li>
     <li>ideaProfileId (FK)</li>
-    <li>ideaArchived</li>
     <li>ideaDescription</li>
+    <li>ideaIsArchived</li>
+    <li>ideaIsSelected</li>
+    <li>ideaName</li>
+
     <li>ideaName</li>
 </ul>
 <h3>vote</h3>
@@ -35,10 +41,10 @@
 </ul>
 <h2>Relations</h2>
 <ul>
-    <li>One profile can vote many times (1 to many)</li>
-    <li>A profile can also rank multiple times, as well (1 to many)</li>
-    <li>An idea can be voted on many times (1 to many)</li>
-    <li>In addition to it (the single idea) being ranked several times (1 to many)</li>
+    <li>1 profile can vote many times (1 to many)</li>
+    <li>1 profile can also rank many times, as well (1 to many)</li>
+    <li>1 idea can be voted on many times (1 to many)</li>
+    <li>1 idea can be ranked many times (1 to many)</li>
 </ul>
 
 </body>
