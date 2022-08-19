@@ -6,16 +6,14 @@ DROP TABLE IF EXISTS profile;
 CREATE TABLE IF NOT EXISTS profile(
     "profileId" uuid NOT NULL,
     "profileActivationToken" CHAR(32),
-    "profileCohort" SMALLINT NOT NULL ,
-    "profileEmail" VARCHAR(128) NOT NULL ,
-    "profileHash" CHAR NOT NULL ,
+    "profileCohort" SMALLINT NOT NULL,
+    "profileEmail" VARCHAR(128) NOT NULL,
+    "profileHash" CHAR(97) NOT NULL,
     "profileIsInstructor" BOOLEAN NOT NULL,
     "profileName" VARCHAR(32) NOT NULL,
     UNIQUE("profileEmail"),
     PRIMARY KEY ("profileId")
 );
-
-CREATE INDEX ON profile("profileEmail");
 
 CREATE TABLE IF NOT EXISTS idea(
     "ideaId" uuid NOT NULL,
@@ -26,15 +24,21 @@ CREATE TABLE IF NOT EXISTS idea(
     FOREIGN KEY ("ideaProfileId") REFERENCES profile("profileId")
 );
 
-CREATE INDEX ON idea("ideaId");
+CREATE INDEX ON idea("ideaProfileId");
 
 CREATE TABLE IF NOT EXISTS rank(
     "rankIdeaId" uuid NOT NULL,
     "rankProfileId" uuid NOT NULL,
     "rankValue" SMALLINT NOT NULL,
     FOREIGN KEY ("rankIdeaId") REFERENCES idea("ideaId"),
-    FOREIGN KEY ("rankProfileId")REFERENCES profile("profileId")
+    FOREIGN KEY ("rankProfileId")REFERENCES profile("profileId"),
+    PRIMARY KEY ("rankProfileId", "rankIdeaId")
+
 );
+
+
+CREATE INDEX ON rank("rankIdeaId");
+CREATE INDEX ON rank("rankProfileId");
 
 CREATE TABLE IF NOT EXISTS vote(
     "voteIdeaId" uuid NOT NULL,
@@ -42,6 +46,7 @@ CREATE TABLE IF NOT EXISTS vote(
     FOREIGN KEY ("voteIdeaId") REFERENCES idea("ideaId"),
     FOREIGN KEY ("voteProfileId") REFERENCES profile("profileId")
 );
+
 
 
 
