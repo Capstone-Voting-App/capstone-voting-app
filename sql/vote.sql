@@ -5,12 +5,12 @@ DROP TABLE IF EXISTS profile;
 
 CREATE TABLE IF NOT EXISTS profile(
     "profileId" uuid NOT NULL,
-    "profileActivationToken" char(32),
-    "profileCohort" smallint NOT NULL ,
-    "profileEmail" varchar(128) NOT NULL ,
-    "profileHash" char(97) NOT NULL ,
-    "profileIsInstructor" boolean NOT NULL,
-    "profileName" varchar(32) NOT NULL,
+    "profileActivationToken" CHAR(32),
+    "profileCohort" SMALLINT NOT NULL ,
+    "profileEmail" VARCHAR(128) NOT NULL ,
+    "profileHash" CHAR NOT NULL ,
+    "profileIsInstructor" BOOLEAN NOT NULL,
+    "profileName" VARCHAR(32) NOT NULL,
     UNIQUE("profileEmail"),
     PRIMARY KEY ("profileId")
 );
@@ -20,8 +20,8 @@ CREATE INDEX ON profile("profileEmail");
 CREATE TABLE IF NOT EXISTS idea(
     "ideaId" uuid NOT NULL,
     "ideaProfileId" uuid NOT NULL,
-    "ideaArchived" boolean,
-    "ideaDescription" varchar(255) NOT NULL,
+    "ideaArchived" BOOLEAN,
+    "ideaDescription" VARCHAR(255) NOT NULL,
     PRIMARY KEY ("ideaId"),
     FOREIGN KEY ("ideaProfileId") REFERENCES profile("profileId")
 );
