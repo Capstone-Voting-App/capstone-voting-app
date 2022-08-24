@@ -1,7 +1,7 @@
 import {sql} from '../database.utils'
 
 export interface Profile{
-  profileId: string | null,
+profileId: string | null,
   profileActivationToken: string,
   profileCohort: number,
   profileEmail: string,
@@ -14,6 +14,7 @@ export interface PartialProfile{
   profileId: string | null,
   profileCohort: number,
   profileEmail: string,
+  profileIsInstructor: boolean,
   profileName: string
 }
 

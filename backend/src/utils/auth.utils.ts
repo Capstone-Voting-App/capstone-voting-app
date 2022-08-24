@@ -40,3 +40,4 @@ export async function validatePassword (hash: string, password: string): Promise
       hashLength: 32
     })
 }
+
