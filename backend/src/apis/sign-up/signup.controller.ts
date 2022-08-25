@@ -15,10 +15,10 @@ export async function signupProfileController(request: Request, response: Respon
     const {profileCohort, profileEmail, profileName, profilePassword} = request.body;
     const profileHash = await setHash(profilePassword);
     const profileActivationToken = setActivationToken();
-    const basePath =`${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
+    const basePath =`${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
 
     const message = `<h2>Welcome to Capstone Voting.</h2>
-    <p>PLease confirm your account to continue.</p>
+    <p>Please confirm your account to continue.</p>
     <p><a href="${basePath}">${basePath}</a></p>`
 
     const mailgunMessage = {
@@ -35,12 +35,12 @@ export async function signupProfileController(request: Request, response: Respon
       profileEmail,
       profileHash,
       profileIsInstructor: false,
-      profileName
+      profileName,
     };
 
     await insertProfile(profile)
 
-    await mailgunClient.messages.create(<string>process.env.mailgun_domain, mailgunMessage)
+    await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
 
     const status: Status = {
       status: 200,
