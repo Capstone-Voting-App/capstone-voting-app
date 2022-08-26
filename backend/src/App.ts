@@ -7,7 +7,8 @@ import { createClient } from 'redis'
 import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
 import helmet from 'helmet'
-import { ideaRoute } from './apis/idea/idea.route'
+import {signInRoute} from "./apis/sign-in/signin.route";
+
 
 
 
@@ -46,7 +47,7 @@ export class App {
     private routes (): void {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', signupRoute)
-        this.app.use('/apis/sign-in', signinRoute)
+        this.app.use('/apis/sign-in', signInRoute)
         this.app.use('/apis/idea', ideaRoute)
     }
     // starts the server and tells the terminal to post a message that the server is running and on what port

@@ -1,4 +1,5 @@
 import {sql} from '../database.utils'
+import {promises} from "dns";
 
 export interface Profile{
 profileId: string | null,
@@ -34,3 +35,8 @@ export async function selectProfileByProfileActivationToken(profileActivationTok
   const result = await sql <Profile[]> `SELECT "profileId", "profileActivationToken", "profileCohort", "profileEmail", "profileHash", "profileIsInstructor", "profileName" FROM "profile" WHERE "profileActivationToken" = ${profileActivationToken}`
   return result?.length === 1 ? result[0] : null
 }
+export async function selectProfileByProfileEmail (profileEmail: string) : Promise<Profile|null> {
+  const result = await sql <Profile[]>`SELECT "profileId", "profileActivationToken", "profileCohort", "profileEmail", "profileHash", "profileIsInstructor", "profileName" FROM "profile" WHERE "profileEmail" = ${profileEmail}`
+  return result?.length === 1 ? result[0] : null
+}
+
