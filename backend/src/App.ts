@@ -8,6 +8,7 @@ import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
 import helmet from 'helmet'
 import {signInRoute} from "./apis/sign-in/signin.route";
+import { ideaRoute } from './apis/idea/idea.route'
 
 
 

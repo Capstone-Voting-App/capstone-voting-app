@@ -11,11 +11,11 @@ import { Request, Response } from 'express'
 
 export async function postIdeaController (request: Request, response: Response): Promise<Response<Status>> {
   try {
-    const { ideaArchived, ideaDescription } = request.body
+    const { ideaDescription } = request.body
     // @ts-ignore
     const profile = request.session.profile as Profile
     const ideaProfileId = profile.profileId as string
-    const idea: Idea = { ideaId: null, ideaProfileId, ideaArchived, ideaDescription }
+    const idea: Idea = { ideaId: null, ideaProfileId, ideaArchived: false, ideaDescription }
     const result = await insertIdea(idea)
     const status: Status = {
       status: 200,
