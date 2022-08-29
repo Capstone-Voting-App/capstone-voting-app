@@ -9,6 +9,8 @@ import { signupRoute } from './apis/sign-up/signup.route'
 import helmet from 'helmet'
 import {signInRoute} from "./apis/sign-in/signin.route";
 import { ideaRoute } from './apis/idea/idea.route'
+import { voteRoute } from './apis/vote/vote.route'
+import { rankRoute } from './apis/rank/rank.route'
 
 
 
@@ -51,6 +53,7 @@ export class App {
         this.app.use('/apis/sign-in', signInRoute)
         this.app.use('/apis/idea', ideaRoute)
         this.app.use('/apis/vote', voteRoute)
+        this.app.use('/apis/rank', rankRoute)
     }
     // starts the server and tells the terminal to post a message that the server is running and on what port
     public async listen (): Promise<void> {

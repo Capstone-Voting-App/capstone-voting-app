@@ -11,10 +11,10 @@ export async function insertVote(vote: Vote): Promise<string> {
   return 'vote successfully created'
 }
 
-export async function selectVoteByVoteIdeaId (IdeaId: string): Promise<Vote[]> {
+export async function selectVoteByVoteIdeaId (ideaId: string): Promise<Vote[]> {
   return sql<Vote[]> `SELECT "voteIdeaId", "voteProfileId" FROM vote WHERE "voteIdeaId"=${ideaId}`
 }
 
-export async function selectVoteByVoteProfileId (IdeaId: string): Promise<Vote[]> {
+export async function selectVoteByVoteProfileId (profileId: string): Promise<Vote[]> {
   return sql<Vote[]> `SELECT "voteIdeaId", "voteProfileId" FROM vote WHERE "voteProfileId"=${profileId}`
 }
