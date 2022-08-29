@@ -1,6 +1,5 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
-// Routes
 import { indexRoute } from './apis/index.route'
 import session from 'express-session'
 import { createClient } from 'redis'
@@ -8,8 +7,6 @@ import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
 import helmet from 'helmet'
 import {signInRoute} from "./apis/sign-in/signin.route";
-
-
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
