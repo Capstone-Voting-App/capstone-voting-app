@@ -7,6 +7,8 @@ import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
 import helmet from 'helmet'
 import {signInRoute} from "./apis/sign-in/signin.route";
+import { ideaRoute } from './apis/idea/idea.route'
+
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
@@ -44,6 +46,7 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', signupRoute)
         this.app.use('/apis/sign-in', signInRoute)
+        this.app.use('/apis/idea', ideaRoute)
     }
     // starts the server and tells the terminal to post a message that the server is running and on what port
     public async listen (): Promise<void> {
