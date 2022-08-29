@@ -6,16 +6,23 @@ export async function postVoteController (request: Request, response: Response):
   try {
     const {voteIdeaId} = request.body
 
+    // @ts-ignore
     const profile = request.session.profile as Profile
-    const ideaProfileId = profile.profileId as string
+    const voteProfileId = profile.profileId as string
 
-    const vote: Vote = {voteIdea, voteProfileId}
+    const vote: Vote = {voteIdeaId, voteProfileId}
     const result = await insertVote(vote)
     const status: Status ={
       status: 200,
-      message: result
-      return response.json
+      message: 'Vote created successfully',
+      data: null
     }
-      }
-
+    return response.json (status)
+      } catch (error) {
+    return response.json({
+      status: 500,
+      message: 'Error creating vote',
+      data: null
+    })
+  }
 }

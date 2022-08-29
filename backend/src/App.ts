@@ -50,6 +50,7 @@ export class App {
         this.app.use('/apis/sign-up', signupRoute)
         this.app.use('/apis/sign-in', signInRoute)
         this.app.use('/apis/idea', ideaRoute)
+        this.app.use('/apis/vote', voteRoute)
     }
     // starts the server and tells the terminal to post a message that the server is running and on what port
     public async listen (): Promise<void> {
