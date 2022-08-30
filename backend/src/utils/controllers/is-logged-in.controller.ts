@@ -7,8 +7,10 @@ import { Profile } from '../models/Profile'
 export function isLoggedInController (request: Request, response: Response, next: NextFunction): any {
   const status: Status = { status: 400, message: 'Please login', data: null }
 
+  // @ts-ignore
   const sessionProfile = (request: Request): Profile | undefined => request.session?.profile ?? undefined
 
+  // @ts-ignore
   const signature = (request: Request): string => request.session?.signature ?? 'no signature'
 
   const isSessionActive = (isProfileActive: Profile | undefined): boolean => (isProfileActive !== undefined)
