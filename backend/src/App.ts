@@ -1,6 +1,5 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
-// Routes
 import { indexRoute } from './apis/index.route'
 import session from 'express-session'
 import { createClient } from 'redis'
@@ -11,8 +10,6 @@ import {signInRoute} from "./apis/sign-in/signin.route";
 import { ideaRoute } from './apis/idea/idea.route'
 import { voteRoute } from './apis/vote/vote.route'
 import { rankRoute } from './apis/rank/rank.route'
-
-
 
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
