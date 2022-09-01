@@ -1,22 +1,28 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.css'
-import { SignUp } from './SignUp'
-import { FourOhFour } from './FourOhFour'
-import { SignIn } from './SignIn'
-import { Navigation } from './Navigation'
+import React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import {SignUp} from './SignUp';
+import {FourOhFour} from './FourOhFour';
+import {SignIn} from './SignIn';
+import {Navigation} from './Navigation';
+import {Home} from "./Home";
+import {UserInput} from "./UserInput";
+import {Ranking} from "./Ranking";
 
 
 export const App = () => (
-  <>
-    <BrowserRouter>
-      <Navigation/>
-      <Routes>
-        <Route  path='/' element={<SignUp />} />
-        <Route  path='/SignIn' element={<SignIn />} />
-        <Route element={<FourOhFour />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+        <BrowserRouter>
+            <Navigation/>
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/signUp' element={<SignUp/>}/>
+                <Route path='/SignIn' element={<SignIn/>}/>
+                <Route path='/UserInput' element={<UserInput/>}/>
+                <Route path='/Ranking' element={<Ranking/>}/>
+                <Route element={<FourOhFour/>}/>
+            </Routes>
+        </BrowserRouter>
 
-  </>
+    </>
 )

@@ -10,6 +10,12 @@ export function Navigation() {
           <Nav>
             <Nav.Link href="./SignIn">Sign In</Nav.Link>
           </Nav>
+          <Nav>
+            <Nav.Link href="./UserInput">UserInput</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link href="./Ranking">Ranking</Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
