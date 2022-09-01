@@ -16,6 +16,12 @@ export function Navigation() {
           <Nav>
             <Nav.Link href="./Ranking">Ranking</Nav.Link>
           </Nav>
+          <Nav>
+            <Nav.Link href="./Voting">Voting</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link href="./Instructor">Instructor</Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -8,6 +8,8 @@ import {Navigation} from './Navigation';
 import {Home} from "./Home";
 import {UserInput} from "./UserInput";
 import {Ranking} from "./Ranking";
+import {Voting} from './Voting'
+import {Instructor} from './Instructor'
 
 
 export const App = () => (
@@ -20,6 +22,8 @@ export const App = () => (
                 <Route path='/SignIn' element={<SignIn/>}/>
                 <Route path='/UserInput' element={<UserInput/>}/>
                 <Route path='/Ranking' element={<Ranking/>}/>
+                <Route path='/Voting' element={<Voting/>}/>
+                <Route path='/Instructor' element={<Instructor/>}/>
                 <Route element={<FourOhFour/>}/>
             </Routes>
         </BrowserRouter>
