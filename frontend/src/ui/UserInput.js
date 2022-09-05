@@ -7,13 +7,12 @@ export const UserInput = () => {
         <>
         <Container>
          <Form>
-
            <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-             <Form.Label htmlFor="Ideas"><strong>Input Your Idea</strong></Form.Label>
+             <Form.Label htmlFor="Ideas"><h1><strong>Input Your Idea</strong></h1></Form.Label>
              <Form.Control type="text" />
            </Form.Group>
          </Form>
-          <Button size="lg" variant="primary" type="submit">Submit</Button>
+          <Button size="lg" type="submit">Submit</Button>
         </Container>
         </>
     )

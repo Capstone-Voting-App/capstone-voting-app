@@ -11,7 +11,7 @@ export function Navigation() {
             <Nav.Link href="./SignIn">Sign In</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="./UserInput">UserInput</Nav.Link>
+            <Nav.Link href="./UserInput">Idea Submit</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="./Ranking">Ranking</Nav.Link>
