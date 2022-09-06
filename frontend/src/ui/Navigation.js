@@ -1,4 +1,6 @@
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, Navbar, } from 'react-bootstrap'
+import { SignUpModal } from './signup/SignUpModal'
+
 
 export function Navigation() {
   return (
@@ -21,6 +23,9 @@ export function Navigation() {
           </Nav>
           <Nav>
             <Nav.Link href="./Instructor">Instructor</Nav.Link>
+            <>
+            <SignUpModal/>
+            </>
           </Nav>
         </Navbar.Collapse>
       </Container>

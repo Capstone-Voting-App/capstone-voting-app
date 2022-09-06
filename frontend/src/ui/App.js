@@ -1,15 +1,16 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import {SignUp} from './SignUp';
 import {FourOhFour} from './FourOhFour';
 import {SignIn} from './SignIn';
 import {Navigation} from './Navigation';
 import {Home} from "./Home";
 import {UserInput} from "./UserInput";
 import {Ranking} from "./Ranking";
-import {Voting} from './Voting'
-import {Instructor} from './Instructor'
+import {Voting} from './Voting';
+import {Instructor} from './Instructor';
+
+
 
 
 export const App = () => (
@@ -18,7 +19,6 @@ export const App = () => (
             <Navigation/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/signUp' element={<SignUp/>}/>
                 <Route path='/SignIn' element={<SignIn/>}/>
                 <Route path='/UserInput' element={<UserInput/>}/>
                 <Route path='/Ranking' element={<Ranking/>}/>
