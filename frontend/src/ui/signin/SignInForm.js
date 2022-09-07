@@ -3,6 +3,7 @@ import { httpConfig } from '../utils/http-config'
 import jwtDecode from 'jwt-decode'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import { SignInFormContent } from './SignInFormContent'
 
 export const SignInForm = () => {
   const dispatch = useDispatch()
