@@ -5,17 +5,18 @@ const slice = createSlice({
   name: "ideas",
   initialState: [],
   reducers: {
-    getIdeasByProfileCohort: (ideas, action) => {
+    setIdeasByProfileCohort: (ideas, action) => {
       return action.payload
     }
   }
 })
 
-export const {getIdeasByProfileCohort} = slice.actions
+export const {setIdeasByProfileCohort} = slice.actions
 
-export const fetchIdeasByProfileCohort = () => async (dispatch) => {
-  const {data} = await httpConfig.get("/apis/idea/");
-  dispatch(getIdeasByProfileCohort(data));
+export const fetchIdeasByProfileCohort = (profileCohort) => async (dispatch) => {
+  const {data} = await httpConfig.get(`/apis/idea/profileCohort/${profileCohort}`);
+  console.log(data)
+  dispatch(setIdeasByProfileCohort(data));
 };
 
 export default slice.reducer

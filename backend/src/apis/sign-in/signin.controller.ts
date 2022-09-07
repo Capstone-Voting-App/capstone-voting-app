@@ -40,7 +40,7 @@ function signInSuccessful (request: Request, response: Response, profile: Profil
         profileId,
         profileEmail,
         profileName,
-        profileCohortgit
+        profileCohort
     }, signature)
     // @ts-ignore
     request.session.profile = profile

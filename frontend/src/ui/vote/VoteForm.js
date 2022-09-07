@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { httpConfig } from '../utils/http-config'
 import { Button, Col, Row } from 'react-bootstrap'
-import { getIdeasByProfileCohort } from '../../store/ideas'
+import { setIdeasByProfileCohort } from '../../store/ideas'
 
 export const VoteForm = ({idea})=> {
 
@@ -13,7 +13,7 @@ export const VoteForm = ({idea})=> {
       .then(reply => {
         if (reply.status === 200) {
           console.log(reply)
-          dispatch(getIdeasByProfileCohort())
+          dispatch(setIdeasByProfileCohort())
         }
         console.log(reply)
       });
