@@ -1,9 +1,16 @@
 import { Container, Nav, Navbar, } from 'react-bootstrap'
 import { SignUpModal } from './signup/SignUpModal'
 import { SignInModal } from './signin/SignInModal'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 
 export function Navigation() {
+const auth = useSelector(state => state.auth ? state.auth : null);
+console.log(auth)
+
+
+
   return (
     <Navbar bg="primary" expand="lg" className="border border rounded-1 border-dark">
       <Container fluid>
@@ -22,13 +29,13 @@ export function Navigation() {
           </Nav>
           <Nav>
             <Nav.Link href="./Instructor">Instructor</Nav.Link>
+          </Nav>
+          {auth === null && (
             <>
             <SignUpModal/>
-            </>
-            <>
             <SignInModal/>
             </>
-          </Nav>
+            )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
