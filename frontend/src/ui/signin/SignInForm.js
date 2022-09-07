@@ -5,6 +5,8 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { SignInFormContent } from './SignInFormContent'
 
+import { getAuth } from '../../store/auth'
+
 export const SignInForm = () => {
   const dispatch = useDispatch()
 
@@ -37,7 +39,7 @@ export const SignInForm = () => {
         }
   );
     return (
-      <>
+
       <Formik
         initialValues={signIn}
         onSubmit={submitSignIn}
@@ -45,6 +47,6 @@ export const SignInForm = () => {
         >
         {SignInFormContent}
       </Formik>
-      </>
+
     )
 };
