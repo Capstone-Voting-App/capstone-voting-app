@@ -23,7 +23,7 @@ export const VoteForm = ({idea})=> {
       <Row>
         <Col>
           <p>{idea.ideaDescription}</p>
-          <Button onClick={clickLike}>{idea.voteCount}<span role="img" aria-label="heart emoji"></span></Button>
+          {/*<Button onClick={clickLike}>{idea.voteCount}<span role="img" aria-label="heart emoji"></span></Button>*/}
         </Col>
       </Row>
     </div>
