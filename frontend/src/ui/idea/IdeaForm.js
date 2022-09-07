@@ -16,11 +16,12 @@ export const IdeaForm = () => {
   const auth = useSelector(state => state.auth ? state.auth : null);
 
   const validator = Yup.object().shape({
-    ideaForm: Yup.string()
+    ideaDescription: Yup.string()
       .required("idea description if required"),
     });
 
     const submitIdea = (values, {resetForm, setStatus}) => {
+      console.log('test')
       const ideaProfileId = auth?.profileId ?? null
       const idea = {ideaProfileId, ...values}
       httpConfig.post("apis/idea/", idea)
