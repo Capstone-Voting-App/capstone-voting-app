@@ -30,12 +30,12 @@ console.log(auth)
           <Nav>
             <Nav.Link href="./Instructor">Instructor</Nav.Link>
           </Nav>
-          {auth === null && (
+          {auth === null ? (
             <>
             <SignUpModal/>
             <SignInModal/>
             </>
-            )}
+            ) : (auth.profileName)}
         </Navbar.Collapse>
       </Container>
     </Navbar>

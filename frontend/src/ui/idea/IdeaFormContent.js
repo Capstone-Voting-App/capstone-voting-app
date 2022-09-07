@@ -1,8 +1,7 @@
 import React from 'react'
-import { Envelope, Key } from 'react-bootstrap-icons'
 import { FormDebugger } from '../components/FormDebugger'
 
-export const SignInFormContent = (props) => {
+export const IdeaFormContent = (props) => {
   const {
     status,
     values,
@@ -19,30 +18,26 @@ export const SignInFormContent = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="profileEmail">Email Address</label>
+          <label htmlFor="ideaDescription">Idea</label>
           <div className="input-group">
-            <div className="input-group-prepend">
-              <div className="input-group-text">
-                <Envelope/>
-              </div>
-            </div>
             <input
               className="form-control"
-              name="profileEmail"
-              type="email"
-              value={values.profileEmail}
-              placeholder="Enter email"
+              name="ideaDescription"
+              type="text"
+              value={values.ideaDescription}
+              placeholder="Describe your idea"
               onChange={handleChange}
               onBlur={handleBlur}
             />
           </div>
           {
-            errors.profileEmail && touched.profileEmail && (
+            errors.ideaDescription && touched.ideaDescription && (
               <div className="alert alert-danger">
-                {errors.profileEmail}
+                {errors.ideaDescription}
               </div>
             )
           }
+        </div>
         <div className="form-group">
           <button className="btn btn-primary mb-2" type="submit">Submit</button>
           <button

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
 import * as Yup from 'yup'
 import { httpConfig } from '../utils/http-config'
+import { IdeaFormContent } from './IdeaFormContent'
 
 export const IdeaForm = () => {
   const idea = {
@@ -27,7 +28,7 @@ export const IdeaForm = () => {
 
           if (reply.status === 200) {
             resetForm();
-            // dispatch(fetchIdeasByProfileCohort(auth.profileCohort))
+            dispatch(fetchIdeasByProfileCohort(auth.profileCohort))
           }
           setStatus({message, type});
         }
