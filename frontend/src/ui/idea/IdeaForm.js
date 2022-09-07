@@ -4,6 +4,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { httpConfig } from '../utils/http-config'
 import { IdeaFormContent } from './IdeaFormContent'
+import { fetchIdeasByProfileCohort } from '../../store/ideas'
 
 export const IdeaForm = () => {
   const idea = {
