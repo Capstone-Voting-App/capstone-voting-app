@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar, } from 'react-bootstrap'
 import { SignUpModal } from './signup/SignUpModal'
+import { SignInModal } from './signin/SignInModal'
 
 
 export function Navigation() {
@@ -9,9 +10,7 @@ export function Navigation() {
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
-            <Nav.Link href="./SignIn">Sign In</Nav.Link>
-          </Nav>
+
           <Nav>
             <Nav.Link href="./UserInput">Idea Submit</Nav.Link>
           </Nav>
@@ -25,6 +24,9 @@ export function Navigation() {
             <Nav.Link href="./Instructor">Instructor</Nav.Link>
             <>
             <SignUpModal/>
+            </>
+            <>
+            <SignInModal/>
             </>
           </Nav>
         </Navbar.Collapse>

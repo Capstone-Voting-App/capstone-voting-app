@@ -1,3 +1,4 @@
+import React from 'react'
 import { Envelope, Key } from 'react-bootstrap-icons'
 import { FormDebugger } from '../components/FormDebugger'
 
@@ -17,7 +18,7 @@ export const SignInFormContent = (props) => {
   return (
     <>
     <form onSubmit={handleSubmit}>
-    <div className=="form-group">
+    <div className="form-group">
       <label htmlFor="profileEmail">Email Address</label>
       <div className="input-group">
         <div className="input-group-prepend">
@@ -28,7 +29,6 @@ export const SignInFormContent = (props) => {
         <input
           className="form-control"
           name="profileEmail"
-          id="profileEmail"
           type="email"
           value={values.profileEmail}
           placeholder="Enter email"
@@ -53,7 +53,7 @@ export const SignInFormContent = (props) => {
           </div>
         </div>
         <input
-          id="profilePassword"
+          name="profilePassword"
           className="form-control"
           type="password"
           placeholder="Password"
