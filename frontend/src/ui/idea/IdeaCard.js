@@ -4,7 +4,7 @@ export function IdeaCard({idea}) {
   console.log(idea)
   return (
     <>
-    <h2>Idea</h2>
+    <h2>{idea.ideaDescription}</h2>
     </>
   )
 }

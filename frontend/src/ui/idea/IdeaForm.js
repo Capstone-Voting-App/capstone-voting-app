@@ -17,7 +17,7 @@ export const IdeaForm = () => {
 
   const validator = Yup.object().shape({
     ideaDescription: Yup.string()
-      .required("idea description if required"),
+      .required("An idea is required"),
     });
 
     const submitIdea = (values, {resetForm, setStatus}) => {
