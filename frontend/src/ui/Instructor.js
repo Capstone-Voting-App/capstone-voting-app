@@ -4,8 +4,6 @@ import { InstructorTextBox } from './InstructorTextBox'
 
 export const Instructor = () => {
 
-
-
   return (
     <>
       <Container>

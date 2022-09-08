@@ -16,18 +16,21 @@ export const IdeaForm = () => {
   const auth = useSelector(state => state.auth ? state.auth : null);
 
   const validator = Yup.object().shape({
-    ideaForm: Yup.string()
-      .required("idea description if required"),
+    ideaDescription: Yup.string()
+      .required("An idea is required"),
     });
 
     const submitIdea = (values, {resetForm, setStatus}) => {
+      console.log('test')
       const ideaProfileId = auth?.profileId ?? null
       const idea = {ideaProfileId, ...values}
       httpConfig.post("apis/idea/", idea)
         .then(reply => {
+          console.log('next step')
           let {message, type} = reply;
 
           if (reply.status === 200) {
+            console.log('no reset')
             resetForm();
             dispatch(fetchIdeasByProfileCohort(auth.profileCohort))
           }

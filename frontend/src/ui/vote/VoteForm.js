@@ -2,7 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { httpConfig } from '../utils/http-config'
 import { Button, Col, Row } from 'react-bootstrap'
-import { getIdeasByProfileCohort } from '../../store/ideas'
+import { setIdeasByProfileCohort } from '../../store/ideas'
+import { HandThumbsUp, XCircleFill } from 'react-bootstrap-icons'
 
 export const VoteForm = ({idea})=> {
 
@@ -13,17 +14,19 @@ export const VoteForm = ({idea})=> {
       .then(reply => {
         if (reply.status === 200) {
           console.log(reply)
-          dispatch(getIdeasByProfileCohort())
+          dispatch(setIdeasByProfileCohort())
         }
         console.log(reply)
       });
   }
   return (
-    <div>
+    <div className="container">
       <Row>
         <Col>
-          <p>{idea.ideaDescription}</p>
-          <Button onClick={clickLike}>{idea.voteCount}<span role="img" aria-label="heart emoji"></span></Button>
+          <h5>{idea.ideaDescription}</h5>
+        </Col>
+        <Col className="mb-1">
+          <Button onClick={clickLike}>{idea.voteCount}<span role="img" aria-label=""><HandThumbsUp/></span></Button>
         </Col>
       </Row>
     </div>

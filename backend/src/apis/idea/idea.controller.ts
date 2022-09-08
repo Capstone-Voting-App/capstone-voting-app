@@ -32,7 +32,7 @@ export async function postIdeaController (request: Request, response: Response):
   }
 }
 
-export async function selectIdeasByProfileCohortController (request: Request, response: Response): Promise<Response<Status>> {
+export async function getIdeasByProfileCohortController (request: Request, response: Response): Promise<Response<Status>> {
   try {
     const {profileCohort} = request.params
     const data = await selectIdeasByProfileCohort(Number(profileCohort))
