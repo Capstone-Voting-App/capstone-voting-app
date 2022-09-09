@@ -6,9 +6,9 @@ export const voteValidator: Schema = {
       errorMessage: 'please provide a valid VoteIdeaId'
     }
   },
-  voteProfileId: {
-    isUUID: {
-      errorMessage: 'please provide a valid VoteProfileId'
-    }
-  }
+  // voteProfileId: {
+  //   isUUID: {
+  //     errorMessage: 'please provide a valid VoteProfileId'
+  //   }
+  // }
 }

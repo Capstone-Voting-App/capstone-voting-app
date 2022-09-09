@@ -10,7 +10,7 @@ ideaRoute.route('/')
   .post(isLoggedInController, asyncValidatorController(checkSchema(ideaValidator)), postIdeaController)
 
 ideaRoute.route('/profileCohort/:profileCohort')
-  .get(isLoggedInController, asyncValidatorController([check('profileCohort', 'please provide a valid cohort')]), getIdeasByProfileCohortController)
+  .get(isLoggedInController, asyncValidatorController([check('profileCohort', 'please provide a valid cohort').isInt()]), getIdeasByProfileCohortController)
 
 ideaRoute.route('/ideaId/:ideaId')
   .delete(isLoggedInController, asyncValidatorController([check('ideaId', 'please provide a valid idea ID.').isUUID()]), deleteIdeaController)
