@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS vote(
     "voteIdeaId" uuid NOT NULL,
     "voteProfileId" uuid NOT NULL,
     FOREIGN KEY ("voteIdeaId") REFERENCES idea("ideaId"),
-    FOREIGN KEY ("voteProfileId") REFERENCES profile("profileId")
+    FOREIGN KEY ("voteProfileId") REFERENCES profile("profileId"),
+    PRIMARY KEY ("voteIdeaId", "voteProfileId")
 );
 
 

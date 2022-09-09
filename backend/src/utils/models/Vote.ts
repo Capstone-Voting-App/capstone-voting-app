@@ -1,4 +1,5 @@
 import { sql } from '../database.utils'
+import { Idea } from './Idea'
 
 export interface Vote{
   voteIdeaId: string | null,
@@ -18,3 +19,8 @@ export async function insertVote(vote: Vote): Promise<string> {
 // export async function selectVoteByVoteProfileId (profileId: string): Promise<Vote[]> {
 //   return sql<Vote[]> `SELECT "voteIdeaId", "voteProfileId" FROM vote WHERE "voteProfileId"=${profileId}`
 // }
+
+export async function selectVotesByProfileCohort (profileCohort: number): Promise<Vote[] | null> {
+  const data: Vote[] = await sql `SELECT "voteIdeaId", "voteProfileId" FROM vote JOIN profile ON vote."voteProfileId" = profile."profileId" WHERE profile."profileCohort" = ${profileCohort}`
+  return data
+}

@@ -3,7 +3,7 @@ import { Schema } from 'express-validator'
 export const ideaValidator: Schema = {
   ideaProfileId: {
     isUUID: {
-      errorMessage: 'please provide a valid'
+      errorMessage: 'Please Sign in'
     }
   },
   ideaDescription: {

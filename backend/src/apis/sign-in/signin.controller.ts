@@ -34,12 +34,13 @@ function signInFailed (response: Response): Response {
  * @return express response object with the client status object set in json and an authorization header
  **/
 function signInSuccessful (request: Request, response: Response, profile: Profile): Response {
-    const {profileId, profileEmail, profileName} = profile
+    const {profileId, profileEmail, profileName, profileCohort} = profile
     const signature: string = uuid()
     const authorization: string = generateJwt({
         profileId,
         profileEmail,
-        profileName
+        profileName,
+        profileCohort
     }, signature)
     // @ts-ignore
     request.session.profile = profile

@@ -3,6 +3,7 @@ import { PlusCircleFill } from 'react-bootstrap-icons'
 import { InstructorTextBox } from './InstructorTextBox'
 
 export const Instructor = () => {
+
   return (
     <>
       <Container>

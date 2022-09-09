@@ -1,0 +1,50 @@
+import { Formik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import * as Yup from 'yup'
+import { httpConfig } from '../utils/http-config'
+import { IdeaFormContent } from './IdeaFormContent'
+import { fetchIdeasByProfileCohort } from '../../store/ideas'
+
+export const IdeaForm = () => {
+  const idea = {
+    ideaDescription: "",
+  };
+
+  const dispatch = useDispatch()
+
+  const auth = useSelector(state => state.auth ? state.auth : null);
+
+  const validator = Yup.object().shape({
+    ideaDescription: Yup.string()
+      .required("An idea is required"),
+    });
+
+    const submitIdea = (values, {resetForm, setStatus}) => {
+      console.log('test')
+      const ideaProfileId = auth?.profileId ?? null
+      const idea = {ideaProfileId, ...values}
+      httpConfig.post("apis/idea/", idea)
+        .then(reply => {
+          console.log('next step')
+          let {message, type} = reply;
+
+          if (reply.status === 200) {
+            console.log('no reset')
+            resetForm();
+            dispatch(fetchIdeasByProfileCohort(auth.profileCohort))
+          }
+          setStatus({message, type});
+        }
+        );
+    };
+
+    return (
+      <Formik initialValues={idea}
+              onSubmit={submitIdea}
+              validationSchema={validator}
+              >
+        {IdeaFormContent}
+      </Formik>
+    )
+};
