@@ -14,7 +14,7 @@ import store from '../store/store'
 
 export const App = (store) => (
   <>
-    <Provider store={store}>
+    <Provider store = {store}>
       <BrowserRouter>
         <Navigation/>
         <Routes>
