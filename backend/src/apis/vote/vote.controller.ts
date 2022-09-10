@@ -23,7 +23,7 @@ export async function postVoteController (request: Request, response: Response):
   } catch (error) {
     return response.json({
       status: 500,
-      message: 'Error creating ticket try again later.',
+      message: 'Vote recording failed.',
       data: null
     })
   }

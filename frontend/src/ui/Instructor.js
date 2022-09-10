@@ -1,3 +1,4 @@
+import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import { PlusCircleFill } from 'react-bootstrap-icons'
 import { InstructorTextBox } from './InstructorTextBox'

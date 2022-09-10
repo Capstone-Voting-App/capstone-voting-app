@@ -1,11 +1,11 @@
 import { httpConfig } from '../ui/utils/http-config'
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, } from '@reduxjs/toolkit'
 
 const slice = createSlice({
   name: "votes",
   initialState: [],
   reducers: {
-    setVotes: (ideas, action) => {
+    setVotes: (votes, action) => {
       return action.payload
     }
   }
@@ -17,5 +17,7 @@ export const fetchVotesByProfileCohort = (profileCohort) => async (dispatch) => 
   const {data} = await httpConfig.get(`/apis/vote/profileCohort/${profileCohort}`);
   console.log(data)
   dispatch(setVotes(data));
+  console.log('recorded')
 };
+
 export default slice.reducer

@@ -10,7 +10,6 @@ import { Ranking } from './Ranking'
 import { Voting } from './Voting'
 import { Instructor } from './Instructor'
 import { Provider } from 'react-redux'
-import store from '../store/store'
 
 export const App = (store) => (
   <>

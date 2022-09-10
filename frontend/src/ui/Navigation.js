@@ -1,13 +1,21 @@
 import { Container, Nav, Navbar, } from 'react-bootstrap'
 import { SignUpModal } from './signup/SignUpModal'
 import { SignInModal } from './signin/SignInModal'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAuth } from '../store/auth'
+import  React, { useEffect } from 'react'
 
 
 
 export function Navigation() {
-const auth = useSelector(state => state.auth ? state.auth : null);
-console.log(auth)
+// const auth = useSelector(state => state.auth ? state.auth : null);
+// console.log(auth)
+  const auth = useSelector (state => state.auth ?? null)
+  const dispatch = useDispatch()
+  const initialEffects = () => {
+    dispatch(fetchAuth())
+  }
+  useEffect(initialEffects, [dispatch])
 
 
 

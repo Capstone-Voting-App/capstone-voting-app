@@ -24,7 +24,6 @@ export const fetchIdeasByProfileCohort = (profileCohort) => async (dispatch) => 
 
 export const deleteIdea = (ideaId) => async (dispatch) => {
   await httpConfig.delete(`/apis/idea/ideaId/${ideaId}`);
-  console.log('awaiting delete')
   dispatch(deleteIdeaFromStore(ideaId));
   console.log('deleted')
 };

@@ -18,6 +18,7 @@ export const Voting = () => {
     <>
       <h1><strong>Voting</strong></h1>
       {ideas.map(idea => <VoteForm idea={idea} key={idea.ideaId}/>)}
+      {/*<div key={vote.voteIdeaId}></div>*/}
       <Button size="lg" variant="primary" type="submit">Submit Voting</Button>
     </>
   )
