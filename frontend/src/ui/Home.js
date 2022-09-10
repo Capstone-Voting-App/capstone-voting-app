@@ -2,7 +2,6 @@ import React from 'react'
 import {Button, Col, Container, Row} from "react-bootstrap";
 
 
-
 export const Home = () => {
     return (
         <>

@@ -1,9 +1,17 @@
 import { Button, Col, Container, Row } from 'react-bootstrap'
+import React from 'react'
 import { PlusCircleFill } from 'react-bootstrap-icons'
 import { InstructorTextBox } from './InstructorTextBox'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAuth } from '../store/auth'
 
 export const Instructor = () => {
-
+const auth = useSelector(state => state.auth ?? null)
+  const dispatch = useDispatch()
+  const initialEffects=() => {
+  dispatch(fetchAuth())
+  }
+  React.useEffect(initialEffects, [dispatch])
   return (
     <>
       <Container>
