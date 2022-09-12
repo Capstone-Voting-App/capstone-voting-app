@@ -22,18 +22,18 @@ export const Instructor = () => {
           <IdeaForm/>
         </Row>
         <Row className="p-2 justify-content-around">
-          <Col sm={2} className="mb-2">
-            <Button size="md" type="submit">Remove All</Button>
-          </Col>
-          <Col sm={3} className="mb-2">
-            <Button size="md" type="submit">Move to Voting</Button>
-          </Col>
-          <Col sm={3} className="mb-2">
-            <Button size="md" type="submit">Move to Ranking</Button>
-          </Col>
-          <Col sm={2}>
-            <Button size="md" type="submit"><PlusCircleFill/></Button>
-          </Col>
+          {/*<Col sm={2} className="mb-2">*/}
+          {/*  <Button size="md" type="submit">Remove All</Button>*/}
+          {/*</Col>*/}
+          {/*<Col sm={3} className="mb-2">*/}
+          {/*  <Button size="md" type="submit">Move to Voting</Button>*/}
+          {/*</Col>*/}
+          {/*<Col sm={3} className="mb-2">*/}
+          {/*  <Button size="md" type="submit">Move to Ranking</Button>*/}
+          {/*</Col>*/}
+          {/*<Col sm={2}>*/}
+          {/*  <Button size="md" type="submit"><PlusCircleFill/></Button>*/}
+          {/*</Col>*/}
         </Row>
       </Container>
     </>

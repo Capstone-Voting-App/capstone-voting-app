@@ -1,25 +1,30 @@
 import {Button} from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchIdeasByProfileCohort } from '../store/ideas'
+import { fetchIdeasByProfileCohort } from '../../store/ideas'
 import React, { useEffect } from 'react'
-import { RankList } from './ranking/RankList'
+import { RankList } from './RankList'
+import { RankForm } from './RankForm'
 
 
 export const Ranking = () => {
 
     const ideas = useSelector(state => state.ideas ? state.ideas : []);
+    const auth = useSelector(state => state.auth ? state.auth : null)
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchIdeasByProfileCohort(39));
     };
     const inputs = [];
     useEffect(effects, inputs);
+    if (ideas.length < 1 || auth === null) {
+      return <></>
+    }
+
     return (
       <>
           <h1><strong>Ranking</strong></h1>
-          {ideas.map(idea => <RankList idea={idea} key={idea.ideaId}/>)}
           {/*<div key={vote.voteIdeaId}></div>*/}
-          <Button size="lg" variant="primary" type="submit">Submit Ranking</Button>
+          <RankForm ideas = {ideas} auth = {auth} />
       </>
     )
 }

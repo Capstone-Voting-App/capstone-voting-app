@@ -6,14 +6,13 @@ import { deleteIdea } from '../../utils/models/Idea'
 
 export async function postRankController (request: Request, response: Response): Promise<Response<Status>> {
   try {
-    const { rankIdeaId, rankValue } = request.body
+    const { ranks, ideasLength } = request.body
 
     // @ts-ignore
     const profile = request.session.profile as Profile
     const rankProfileId = profile.profileId as string
 
-    const rank: Rank = { rankIdeaId, rankProfileId, rankValue }
-    const result = await insertRank(rank)
+    const result = await insertRank(ranks as Rank[], ideasLength)
     const status: Status = {
       status: 200,
       message: 'Ranking recorded successfully',
