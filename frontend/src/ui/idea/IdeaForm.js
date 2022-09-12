@@ -21,12 +21,10 @@ export const IdeaForm = () => {
     });
 
     const submitIdea = (values, {resetForm, setStatus}) => {
-      ('test')
       const ideaProfileId = auth?.profileId ?? null
       const idea = {ideaProfileId, ...values}
       httpConfig.post("apis/idea/", idea)
         .then(reply => {
-          ('next step')
           let {message, type} = reply;
 
           if (reply.status === 200) {

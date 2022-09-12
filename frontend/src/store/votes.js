@@ -9,7 +9,7 @@ const slice = createSlice({
       return action.payload
     },
     setIndividualVote: (votes, action) => {
-      votes [action.payload.ideaId] = action.payload.data
+      votes[action.payload.ideaId] = action.payload.data
     }
   }
 })

@@ -19,7 +19,7 @@ export const Ranking = () => {
           <h1><strong>Ranking</strong></h1>
           {ideas.map(idea => <RankList idea={idea} key={idea.ideaId}/>)}
           {/*<div key={vote.voteIdeaId}></div>*/}
-          <Button size="lg" variant="primary" type="submit">Submit Voting</Button>
+          <Button size="lg" variant="primary" type="submit">Submit Ranking</Button>
       </>
     )
 }

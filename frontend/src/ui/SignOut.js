@@ -19,7 +19,7 @@ export const SignOutComponent = () => {
   return(
     <>
       <div className="dropdown-item sign-out-dropdown">
-        <button>
+        <button onClick={signOut}>
           Sign Out
         </button>
       </div>

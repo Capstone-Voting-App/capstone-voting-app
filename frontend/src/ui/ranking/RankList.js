@@ -1,6 +1,4 @@
 import { useDispatch } from 'react-redux'
-import { httpConfig } from '../utils/http-config'
-import { setIdeasByProfileCohort } from '../../store/ideas'
 import { Col, Row } from 'react-bootstrap'
 import React from 'react'
 
