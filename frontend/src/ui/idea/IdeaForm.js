@@ -21,16 +21,15 @@ export const IdeaForm = () => {
     });
 
     const submitIdea = (values, {resetForm, setStatus}) => {
-      console.log('test')
+      ('test')
       const ideaProfileId = auth?.profileId ?? null
       const idea = {ideaProfileId, ...values}
       httpConfig.post("apis/idea/", idea)
         .then(reply => {
-          console.log('next step')
+          ('next step')
           let {message, type} = reply;
 
           if (reply.status === 200) {
-            console.log('no reset')
             resetForm();
             dispatch(fetchIdeasByProfileCohort(auth.profileCohort))
           }

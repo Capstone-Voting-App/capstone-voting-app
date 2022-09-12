@@ -6,9 +6,15 @@ import { fetchAuth } from '../store/auth'
 import { useEffect, useState } from 'react'
 
 
-
-// export function Navigation() {
+export function Navigation() {
+// const auth = useSelector(state => state.auth ? state.auth : null);
 // console.log(auth)
+  const auth = useSelector (state => state.auth ?? null)
+  const dispatch = useDispatch()
+  const initialEffects = () => {
+    dispatch(fetchAuth())
+  }
+  useEffect(initialEffects, [dispatch])
 
 export const Navigation = (props) => {
 
