@@ -1,12 +1,11 @@
 import React from 'react'
-import { useDispatch, useStore } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { httpConfig } from '../utils/http-config'
 import { Button, Col, Row } from 'react-bootstrap'
 import { setIdeasByProfileCohort } from '../../store/ideas'
 import { HandThumbsUp} from 'react-bootstrap-icons'
-import { setVotes } from '../../store/votes'
 
-export const VoteForm = ({idea}, {vote})=> {
+export const VoteList = ({idea}, {vote})=> {
 
   const dispatch = useDispatch()
 
@@ -16,7 +15,6 @@ export const VoteForm = ({idea}, {vote})=> {
         if (reply.status === 200) {
           dispatch(setIdeasByProfileCohort())
         }
-        console.log(reply)
       });
   }
   return (

@@ -3,21 +3,28 @@ import { createSlice, } from '@reduxjs/toolkit'
 
 const slice = createSlice({
   name: "votes",
-  initialState: [],
+  initialState: {},
   reducers: {
     setVotes: (votes, action) => {
       return action.payload
+    },
+    setIndividualVote: (votes, action) => {
+      votes [action.payload.ideaId] = action.payload.data
     }
   }
 })
 
-export const {setVotes} = slice.actions
+export const {setVotes, setIndividualVote} = slice.actions
 
 export const fetchVotesByProfileCohort = (profileCohort) => async (dispatch) => {
   const {data} = await httpConfig.get(`/apis/vote/profileCohort/${profileCohort}`);
-  console.log(data)
   dispatch(setVotes(data));
-  console.log('recorded')
+};
+
+export const fetchVotesByVoteIdeaId = (ideaId) => async (dispatch) => {
+  const {data} = await httpConfig.get(`/apis/vote/${ideaId}`);
+  dispatch(setIndividualVote({ideaId,data}));
+  console.log(data)
 };
 
 export default slice.reducer

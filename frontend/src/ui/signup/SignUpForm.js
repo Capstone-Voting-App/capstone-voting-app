@@ -42,7 +42,6 @@ export const SignUpForm = () => {
           setStatus({message, type});
         }
       );
-    console.log("Submitted")
   };
 
 

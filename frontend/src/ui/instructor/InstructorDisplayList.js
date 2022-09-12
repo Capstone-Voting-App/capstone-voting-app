@@ -2,12 +2,17 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Col, Row } from 'react-bootstrap'
 import {  XCircleFill } from 'react-bootstrap-icons'
-import { useEffect } from 'react'
 import { deleteIdea } from '../../store/ideas'
-import { InstructorVoteCounter } from './InstructorVoteCounter'
 
-export const InstructorDisplayList = ({idea}, {vote})=> {
-
+export const InstructorDisplayList = ({idea})=> {
+const votes = useSelector(state => {
+  if (state.votes[idea.ideaId] === undefined) {
+    return []
+  } else {
+    return state.votes[idea.ideaId]
+  }
+})
+  console.log(votes.length)
   // const ideas = useSelector(state => state.ideas ? state.ideas : []);
   const dispatch = useDispatch();
   // const effects = () => {
@@ -30,8 +35,9 @@ export const InstructorDisplayList = ({idea}, {vote})=> {
             <h5>{idea.ideaDescription}</h5>
           </Col>
           <Col>
-            <p>{vote.voteIdeaId}</p>
+            {votes.length}
           </Col>
+
         </Row>
       </div>
     )

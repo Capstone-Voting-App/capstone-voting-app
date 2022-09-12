@@ -12,7 +12,6 @@ export function InstructorTextBox () {
   const dispatch = useDispatch();
   const effects = () => {
     dispatch(fetchIdeasByProfileCohort(39));
-    dispatch(fetchVotesByProfileCohort(39));
   };
   const inputs = [];
   useEffect(effects, inputs);
@@ -22,7 +21,6 @@ export function InstructorTextBox () {
       {/*  <Form.Group as={Row} controlId="formHorizontal" className="mb-2 border border-light border rounded bg-light">*/}
       {/*    <Col sm={10}>*/}
             {ideas.map(idea => <InstructorDisplayList idea={idea} key={idea.ideaId}/>)}
-      {votes.count()}
     {/*      </Col>*/}
     {/*      <Col sm={1}>*/}
     {/*        <Form.Control type="text" placeholder="*" />*/}
