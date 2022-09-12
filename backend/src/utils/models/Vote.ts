@@ -24,3 +24,8 @@ export async function selectVotesByProfileCohort (profileCohort: number): Promis
   const data: Vote[] = await sql `SELECT "voteIdeaId", "voteProfileId" FROM vote JOIN profile ON vote."voteProfileId" = profile."profileId" WHERE profile."profileCohort" = ${profileCohort}`
   return data
 }
+
+export async function selectVotesByVoteIdeaId (ideaId: string): Promise<Vote[] | null> {
+  const data: Vote[] = await sql `SELECT "voteIdeaId", "voteProfileId" FROM vote WHERE "voteIdeaId" = ${ideaId}`
+  return data
+}
