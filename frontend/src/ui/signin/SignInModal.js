@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from 'react'
 import {Button} from "react-bootstrap";
 import {Modal} from "react-bootstrap";
 import { SignInForm } from './SignInForm'
 
 
 export const SignInModal = () => {
+  // const {handleShow, handleClose, show} = props
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
