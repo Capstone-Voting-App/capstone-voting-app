@@ -1,6 +1,8 @@
 import { httpConfig } from '../ui/utils/http-config'
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchVotesByVoteIdeaId } from './votes'
+import { fetchRanksByProfileCohort } from './ranks'
+
 
 const slice = createSlice({
   name: "ideas",
@@ -20,8 +22,10 @@ export const {setIdeasByProfileCohort, deleteIdeaFromStore} = slice.actions
 export const fetchIdeasByProfileCohort = (profileCohort) => async (dispatch) => {
   const {data} = await httpConfig.get(`/apis/idea/profileCohort/${profileCohort}`);
   dispatch(setIdeasByProfileCohort(data));
-  for (let idea of data) {
+  let profile
+  for (let idea  of data) {
     dispatch(fetchVotesByVoteIdeaId(idea.ideaId))
+    dispatch(fetchRanksByProfileCohort(profile.profileCohort))
   }
 };
 

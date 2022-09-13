@@ -1,9 +1,8 @@
-import {Button} from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchIdeasByProfileCohort } from '../../store/ideas'
 import React, { useEffect } from 'react'
-import { RankList } from './RankList'
 import { RankForm } from './RankForm'
+import { fetchRanksByProfileCohort } from '../../store/ranks'
 
 
 export const Ranking = () => {
@@ -13,6 +12,7 @@ export const Ranking = () => {
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchIdeasByProfileCohort(39));
+      dispatch(fetchRanksByProfileCohort(39));
     };
     const inputs = [];
     useEffect(effects, inputs);

@@ -1,4 +1,5 @@
 import { sql } from '../database.utils'
+import {Idea} from "./Idea";
 
 export interface Rank{
   rankIdeaId: string | null,
@@ -35,4 +36,8 @@ function generateValuesForInsert(ranks: Rank[], length:number): any {
     }
   }
   return values
+}
+export async function selectRanksByProfileCohort (profileCohort: number): Promise<Rank[] | null> {
+  const data: Rank[] = await sql `SELECT "rankIdeaId", "rankProfileId", "rankValue" FROM rank JOIN profile ON rank."rankProfileId" = profile."profileId" WHERE "profileCohort" = ${profileCohort}`
+  return data
 }

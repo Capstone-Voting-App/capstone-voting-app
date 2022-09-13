@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { InstructorDisplayList } from './InstructorDisplayList'
 import { fetchVotesByProfileCohort } from '../../store/votes'
+import { fetchRanksByProfileCohort } from '../../store/ranks'
 
 export function InstructorVoteCounter () {
 
@@ -10,6 +11,7 @@ export function InstructorVoteCounter () {
   const dispatch = useDispatch();
   const effects = () => {
     dispatch(fetchVotesByProfileCohort(39));
+    // dispatch(fetchRanksByProfileCohort(39));
   };
   const inputs = [];
   useEffect(effects, inputs);

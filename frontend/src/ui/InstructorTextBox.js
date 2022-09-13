@@ -1,9 +1,10 @@
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Container, Form, Row } from 'react-bootstrap'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchIdeasByProfileCohort, setIdeasByProfileCohort } from '../store/ideas'
 import { InstructorDisplayList } from './instructor/InstructorDisplayList'
 import { fetchVotesByProfileCohort } from '../store/votes'
+import { fetchRanksByProfileCohort } from '../store/ranks'
 
 
 export function InstructorTextBox () {
@@ -12,6 +13,8 @@ export function InstructorTextBox () {
   const dispatch = useDispatch();
   const effects = () => {
     dispatch(fetchIdeasByProfileCohort(39));
+    dispatch(fetchRanksByProfileCohort(39));
+
   };
   const inputs = [];
   useEffect(effects, inputs);
