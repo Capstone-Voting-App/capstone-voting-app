@@ -25,7 +25,7 @@ export const fetchIdeasByProfileCohort = (profileCohort) => async (dispatch) => 
   let profile
   for (let idea  of data) {
     dispatch(fetchVotesByVoteIdeaId(idea.ideaId))
-    dispatch(fetchRanksByProfileCohort(profile.profileCohort))
+    // dispatch(fetchRanksByProfileCohort(profile.profileCohort))
   }
 };
 

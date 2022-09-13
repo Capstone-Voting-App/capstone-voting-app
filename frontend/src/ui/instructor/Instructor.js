@@ -1,10 +1,8 @@
 import React from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
-import { PlusCircleFill } from 'react-bootstrap-icons'
+import { Container, Row } from 'react-bootstrap'
+import { InstructorRankResults, RankTable } from './InstructorRankResults'
+import { IdeaForm } from '../idea/IdeaForm'
 import { InstructorTextBox } from './InstructorTextBox'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchAuth } from '../store/auth'
-import { IdeaForm } from './idea/IdeaForm'
 
 export const Instructor = () => {
 // const auth = useSelector(state => state.auth ?? null)
@@ -20,6 +18,9 @@ export const Instructor = () => {
           <InstructorTextBox/>
         <Row>
           <IdeaForm/>
+        </Row>
+        <Row>
+          {/*<RankTable/>*/}
         </Row>
         <Row className="p-2 justify-content-around">
           {/*<Col sm={2} className="mb-2">*/}

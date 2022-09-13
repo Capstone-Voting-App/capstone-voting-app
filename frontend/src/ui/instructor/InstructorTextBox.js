@@ -1,19 +1,22 @@
 import { Container, Form, Row } from 'react-bootstrap'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchIdeasByProfileCohort, setIdeasByProfileCohort } from '../store/ideas'
-import { InstructorDisplayList } from './instructor/InstructorDisplayList'
-import { fetchVotesByProfileCohort } from '../store/votes'
-import { fetchRanksByProfileCohort } from '../store/ranks'
+import { fetchIdeasByProfileCohort, setIdeasByProfileCohort } from '../../store/ideas'
+import { InstructorDisplayList } from './InstructorDisplayList'
+import { fetchVotesByProfileCohort } from '../../store/votes'
+import { fetchRanksByProfileCohort } from '../../store/ranks'
+import { fetchProfilesByProfileCohort } from '../../store/profile'
 
 
 export function InstructorTextBox () {
   const votes = useSelector(state => state.votes ? state.votes : []);
   const ideas = useSelector(state => state.ideas ? state.ideas : []);
+  const profiles =useSelector(state => state.profile ? state.profile : []);
   const dispatch = useDispatch();
   const effects = () => {
     dispatch(fetchIdeasByProfileCohort(39));
     dispatch(fetchRanksByProfileCohort(39));
+    dispatch(fetchProfilesByProfileCohort(39));
 
   };
   const inputs = [];

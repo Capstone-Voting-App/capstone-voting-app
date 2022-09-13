@@ -12,7 +12,7 @@ export const Ranking = () => {
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchIdeasByProfileCohort(39));
-      dispatch(fetchRanksByProfileCohort(39));
+        dispatch(fetchRanksByProfileCohort(39));
     };
     const inputs = [];
     useEffect(effects, inputs);
