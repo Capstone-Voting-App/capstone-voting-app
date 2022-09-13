@@ -1,23 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-export const RankTable = () => {
-  const { rankData } = useSelector( state => state.ranks );
+
+
+
+export const RankTable = ({profiles, ideas, ranks}) => {
+  console.log("ranks",ranks)
+  console.log("profiles", profiles)
   return (
     <table className="table">
       <thead>
       <tr>
-        <th style={{ width: 100 }}>Name</th>
-        <th style={{ width: 150 }}>Idea</th>
-        <th style={{ width: 150 }}>Ranking</th>
+        <th style={{ width: 100 }}></th>
+        {ideas.map(idea =>(<th style={{ width: 100 }}>{idea.ideaDescription}</th>))}
       </tr>
       </thead>
       <tbody>
-      {rankData && rankData.map( rank =>
-        <tr key={rank.id}>
-          {/*<td>{profile.ProfileName}</td>*/}
-          {/*<td>{idea.ideaDescription}</td>*/}
-          <td>{rank.rankValue}</td>
+      {profiles.map( profile =>
+        <tr key={profile.profileId}>
+          <td>{profile.profileName}</td>
+          {ideas.map(idea => {
+            return( <td>
+              {ranks.filter(rank => rank.rankIdeaId === idea.ideaId && rank.rankProfileId === profile.profileId)[0]?.rankValue}
+            </td>)
+          })}
+
+          {/*<td>{rank.rankValue}</td>*/}
         </tr>
       )}
       </tbody>

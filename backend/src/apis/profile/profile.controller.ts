@@ -3,6 +3,7 @@ import { Status } from '../../utils/interfaces/Status'
 import { selectPartialProfilesByProfileCohort } from '../../utils/models/Profile'
 
 export async function getPartialProfilesByProfileCohortController (request: Request, response: Response): Promise<Response<Status>> {
+
   try {
     const {profileCohort} = request.params
     // @ts-ignore

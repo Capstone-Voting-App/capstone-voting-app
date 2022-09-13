@@ -37,9 +37,10 @@ export async function selectProfileByProfileActivationToken(profileActivationTok
 }
 
 
-export async function selectPartialProfilesByProfileCohort (profileCohort: string) : Promise<PartialProfile|null> {
+export async function selectPartialProfilesByProfileCohort (profileCohort: string) : Promise<PartialProfile[]|null> {
+
   const result = await sql <PartialProfile[]>`SELECT "profileId",  "profileCohort", "profileEmail", "profileIsInstructor", "profileName" FROM "profile" WHERE "profileCohort" = ${profileCohort}`
-  return result?.length === 1 ? result[0] : null
+  return result?.length >= 1 ? result : null
 }
 
 export async function selectProfileByProfileEmail (profileEmail: string) : Promise<Profile|null> {
