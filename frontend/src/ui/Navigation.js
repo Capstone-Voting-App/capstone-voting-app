@@ -8,8 +8,19 @@ import { Link } from 'react-router-dom'
 import { SignOutComponent } from './SignOut'
 import { PersonBadge } from 'react-bootstrap-icons'
 
+function changeBackground(color) {
+  document.body.style.background = color
+}
+window.addEventListener("load",function() { changeBackground('#efefef') });
 
 export function Navigation() {
+  const style = {
+    backgroundColor: "#003a70",
+    color: "#F7F1DE"
+  };
+  const linkStyle = {
+    color: "#f6be00"
+  };
   const auth = useSelector (state => state.auth ?? null)
   const dispatch = useDispatch()
   const initialEffects = () => {
@@ -17,24 +28,11 @@ export function Navigation() {
   }
   useEffect(initialEffects, [dispatch])
 
-// export const Navigation = (props) => {
-//
-//   const auth = useSelector(state => state.auth ? state.auth : null);
-//
-//   const dispatch = useDispatch()
-//   const effects = () => {
-//     dispatch(fetchAuth());
-//   };
-//   const inputs = [];
-//   useEffect(effects, inputs);
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // isModalOpen prevents the sign in modal being removed from the dom before the
-  // sign-in modal is closed by the user
   const isModalOpen = ()=> {
     if(!auth) {
       return !auth
@@ -43,28 +41,28 @@ export function Navigation() {
     }
   }
   return (
-    <Navbar bg="primary" expand="lg" className="border border rounded-1 border-dark">
+    <Navbar expand="lg" className="border border rounded-1 border-dark" style={style}>
       <Container fluid>
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
 
           <Nav>
-            <Nav.Link href="./UserInput">Idea Submit</Nav.Link>
+            <Nav.Link href="./UserInput" style={linkStyle}>Idea Submit</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="./Ranking">Ranking</Nav.Link>
+            <Nav.Link href="./Ranking" style={linkStyle}>Ranking</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="./Voting">Voting</Nav.Link>
+            <Nav.Link href="./Voting" style={linkStyle}>Voting</Nav.Link>
           </Nav>
           {auth?.profileIsInstructor && (
           <Nav>
-            <Nav.Link href="./Instructor">Instructor</Nav.Link>
+            <Nav.Link href="./Instructor" style={linkStyle}>Instructor</Nav.Link>
           </Nav>)}
           {auth !== null && (
             <>
-              <NavDropdown className="nav-link navbar-username" title={auth?.profileName ?? ""} >
+              <NavDropdown className="ms-auto nav-link navbar-username" title={auth?.profileName ?? ""} >
                 <div className="dropdown-item">
                   <Link to={`/profile/${auth?.profileId}`} className="btn btn-outline-dark">
                     <PersonBadge/>&nbsp;&nbsp;My Profile

@@ -12,6 +12,7 @@ import { Instructor } from './instructor/Instructor'
 import { Provider } from 'react-redux'
 
 
+
 export const App = (store) => (
   <>
     <Provider store = {store}>

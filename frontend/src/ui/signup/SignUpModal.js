@@ -5,6 +5,10 @@ import {SignUpForm} from "./SignUpForm";
 
 
 export const SignUpModal = () => {
+  const button = {
+    backgroundColor: "black",
+    color: "#f6be00"
+  }
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -12,7 +16,7 @@ export const SignUpModal = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="ms-auto me-2" style={button} onClick={handleShow}>
         Sign Up
       </Button>
 
