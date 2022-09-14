@@ -11,6 +11,7 @@ import {signInRoute} from "./apis/sign-in/signin.route";
 import { ideaRoute } from './apis/idea/idea.route'
 import { voteRoute } from './apis/vote/vote.route'
 import { rankRoute } from './apis/rank/rank.route'
+import { SignOutRoute } from './apis/sign-out/signout.route'
 
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
@@ -49,6 +50,7 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', signupRoute)
         this.app.use('/apis/sign-in', signInRoute)
+        this.app.use('/apis/sign-out', SignOutRoute)
         this.app.use('/apis/idea', ideaRoute)
         this.app.use('/apis/vote', voteRoute)
         this.app.use('/apis/rank', rankRoute)

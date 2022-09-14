@@ -1,5 +1,4 @@
-import { Button } from 'react-bootstrap'
-import { VoteForm } from './vote/VoteForm'
+import { VoteList } from './vote/VoteList'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchIdeasByProfileCohort } from '../store/ideas'
@@ -17,8 +16,9 @@ export const Voting = () => {
   return (
     <>
       <h1><strong>Voting</strong></h1>
-      {ideas.map(idea => <VoteForm idea={idea} key={idea.ideaId}/>)}
-    <Button size="lg" variant="primary" type="submit">Submit Voting</Button>
+      {ideas.map(idea => <VoteList idea={idea} key={idea.ideaId}/>)}
+      {/*<div key={vote.voteIdeaId}></div>*/}
+      {/*<Button size="lg" variant="primary" type="submit">Submit Voting</Button>*/}
     </>
   )
 }

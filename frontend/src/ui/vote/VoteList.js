@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux'
 import { httpConfig } from '../utils/http-config'
 import { Button, Col, Row } from 'react-bootstrap'
 import { setIdeasByProfileCohort } from '../../store/ideas'
-import { HandThumbsUp, XCircleFill } from 'react-bootstrap-icons'
+import { HandThumbsUp} from 'react-bootstrap-icons'
 
-export const VoteForm = ({idea})=> {
+export const VoteList = ({idea}, {vote})=> {
 
   const dispatch = useDispatch()
 
@@ -13,10 +13,8 @@ export const VoteForm = ({idea})=> {
     httpConfig.post("/apis/vote/", {voteIdeaId: idea.ideaId})
       .then(reply => {
         if (reply.status === 200) {
-          console.log(reply)
           dispatch(setIdeasByProfileCohort())
         }
-        console.log(reply)
       });
   }
   return (
@@ -26,7 +24,7 @@ export const VoteForm = ({idea})=> {
           <h5>{idea.ideaDescription}</h5>
         </Col>
         <Col className="mb-1">
-          <Button onClick={clickLike}>{idea.voteCount}<span role="img" aria-label=""><HandThumbsUp/></span></Button>
+          <Button onClick={clickLike}><span role="img" aria-label="thumbs up"><HandThumbsUp/></span></Button>
         </Col>
       </Row>
     </div>
