@@ -10,6 +10,11 @@ import { PersonBadge } from 'react-bootstrap-icons'
 
 
 export function Navigation() {
+
+  const bgColor = {
+    backgroundColor: "#003a70"
+  }
+
   const auth = useSelector (state => state.auth ?? null)
   const dispatch = useDispatch()
   const initialEffects = () => {
@@ -17,16 +22,10 @@ export function Navigation() {
   }
   useEffect(initialEffects, [dispatch])
 
-// export const Navigation = (props) => {
-//
-//   const auth = useSelector(state => state.auth ? state.auth : null);
-//
-//   const dispatch = useDispatch()
-//   const effects = () => {
-//     dispatch(fetchAuth());
-//   };
-//   const inputs = [];
-//   useEffect(effects, inputs);
+  function changeBackground(color) {
+    document.body.style.background = color
+  }
+  window.addEventListener("load",function() { changeBackground('#efefef')});
 
   const [show, setShow] = useState(false);
 
@@ -43,9 +42,9 @@ export function Navigation() {
     }
   }
   return (
-    <Navbar bg="primary" expand="lg" className="border border rounded-1 border-dark">
+    <Navbar expand="lg" className="border border rounded-1 border-dark" style={bgColor}>
       <Container fluid>
-        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Brand href="/" className="ms-5">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
 
