@@ -14,6 +14,7 @@ function changeBackground(color) {
 window.addEventListener("load",function() { changeBackground('#efefef') });
 
 export function Navigation() {
+
   const style = {
     backgroundColor: "#003a70",
     color: "#F7F1DE"
@@ -21,12 +22,18 @@ export function Navigation() {
   const linkStyle = {
     color: "#f6be00"
   };
+
   const auth = useSelector (state => state.auth ?? null)
   const dispatch = useDispatch()
   const initialEffects = () => {
     dispatch(fetchAuth())
   }
   useEffect(initialEffects, [dispatch])
+
+  function changeBackground(color) {
+    document.body.style.background = color
+  }
+  window.addEventListener("load",function() { changeBackground('#efefef')});
 
   const [show, setShow] = useState(false);
 
@@ -41,9 +48,11 @@ export function Navigation() {
     }
   }
   return (
+
     <Navbar expand="lg" className="border border rounded-1 border-dark" style={style}>
+
       <Container fluid>
-        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Brand href="/" className="ms-5">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
 

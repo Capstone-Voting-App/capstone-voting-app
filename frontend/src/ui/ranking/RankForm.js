@@ -5,8 +5,16 @@ import { object, array, string, number} from "yup"
 import { httpConfig } from '../utils/http-config'
 import { fetchIdeasByProfileCohort } from '../../store/ideas'
 import { FormDebugger } from '../components/FormDebugger'
+import { Container, Row } from 'react-bootstrap'
 
 export const RankForm = (props) => {
+
+  const bgColor = {
+    backgroundColor: "#0037a0"
+  }
+  const resetBg = {
+    backgroundColor: "#408ADB"
+  }
   const dispatch = useDispatch()
   const {ideas, auth} = props
   const ranks = createInitialRanks(ideas)
@@ -57,13 +65,15 @@ export const RankForm = (props) => {
 console.log(values)
     return (
       <>
+        <Container>
+          <Row className="row-cols-4">
         <form onSubmit={handleSubmit}>
           <FieldArray name="ranks">
             {() => (
               <>
                 {values.ranks.map((idea, index) => (
-                  <div className="form-group">
-                    <label htmlFor="rankValue">{idea.ideaDescription}</label>
+                  <div className="form-group d-flex">
+                    <label htmlFor="rankValue" className="me-3 col-md-8 mb-2"><h6 className="p-2">{idea.ideaDescription}</h6></label>
                     <div className="input-group">
                       <div key={`rank-${index}`} className="mb-3">
                         <input
@@ -72,6 +82,7 @@ console.log(values)
                           value={values.ranks[index].rankValue}
                           onChange={handleChange}
                           onBlur={handleBlur}
+                          className="w-100 p-2"
                         />
                       </div>
                     </div>
@@ -88,16 +99,19 @@ console.log(values)
             )}
           </FieldArray>
           <div className="form-group">
-            <button className="btn btn-primary mb-2" type="submit">Submit</button>
+            <button className="btn btn-primary mb-2 me-1 shadow" style={bgColor} type="submit">Submit</button>
             <button
-              className="btn btn-danger mb-2"
+              className="btn mb-2 text-light"
               onClick={handleReset}
               disabled={!dirty || isSubmitting}
+              style={resetBg}
             >Reset
             </button>
           </div>
-          <FormDebugger {...props} />
+          {/*<FormDebugger {...props} />*/}
         </form>
+          </Row>
+        </Container>
         {status && (<div className={status.type}>{status.message}</div>)}
       </>
     )
