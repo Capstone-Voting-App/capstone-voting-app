@@ -29,7 +29,7 @@ const votes = useSelector(state => {
       <div className="container">
         <Row>
           <Col>
-            <Button type="delete" onClick={deleteClickedIdea}><XCircleFill/></Button>
+            <Button type="delete" onClick={deleteClickedIdea} className="bgColor mb-1"><XCircleFill className="bgColor"/></Button>
           </Col>
           <Col className="mb-1">
             <h5>{idea.ideaDescription}</h5>
@@ -37,7 +37,6 @@ const votes = useSelector(state => {
           <Col>
             {votes.length}
           </Col>
-
         </Row>
       </div>
     )

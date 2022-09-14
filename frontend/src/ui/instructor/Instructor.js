@@ -25,7 +25,7 @@ export const Instructor = () => {
   useEffect(effects, inputs);
   return (
     <>
-      <Container>
+      <Container className="border border rounded shadow mt-5">
         <h1 className="text-center my-5"><strong>Instructor Dashboard</strong></h1>
         {ideas.length && <InstructorTextBox ideas = {ideas}/>}
         <Row>

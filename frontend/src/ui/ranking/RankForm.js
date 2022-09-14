@@ -9,12 +9,7 @@ import { Container, Row } from 'react-bootstrap'
 
 export const RankForm = (props) => {
 
-  const bgColor = {
-    backgroundColor: "#0037a0"
-  }
-  const resetBg = {
-    backgroundColor: "#408ADB"
-  }
+
   const dispatch = useDispatch()
   const {ideas, auth} = props
   const ranks = createInitialRanks(ideas)
@@ -99,12 +94,11 @@ console.log(values)
             )}
           </FieldArray>
           <div className="form-group">
-            <button className="btn btn-primary mb-2 me-1 shadow" style={bgColor} type="submit">Submit</button>
+            <button className="btn btn-primary mb-2 me-1 shadow bgColor" type="submit">Submit</button>
             <button
-              className="btn mb-2 text-light"
+              className="btn mb-2 text-light resetBg"
               onClick={handleReset}
               disabled={!dirty || isSubmitting}
-              style={resetBg}
             >Reset
             </button>
           </div>

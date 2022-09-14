@@ -18,7 +18,7 @@ export const IdeaFormContent = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="ideaDescription">Idea</label>
+          <label htmlFor="ideaDescription"></label>
           <div className="input-group">
             <input
               className="form-control"
@@ -38,10 +38,10 @@ export const IdeaFormContent = (props) => {
             )
           }
         </div>
-        <div className="form-group">
-          <button className="btn btn-primary mb-2" type="submit">Submit</button>
+        <div className="form-group mt-3">
+          <button className="btn mb-2 btn-lg bgColor me-1" type="submit" >Submit</button>
           <button
-            className="btn btn-danger mb-2"
+            className="btn mb-2 btn-lg resetBg"
             onClick={handleReset}
             disabled={!dirty || isSubmitting}
           >Reset

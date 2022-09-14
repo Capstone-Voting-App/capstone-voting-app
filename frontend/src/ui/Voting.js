@@ -15,7 +15,9 @@ export const Voting = () => {
   useEffect(effects, inputs);
   return (
     <>
-      <h1><strong>Voting</strong></h1>
+      <h1 className="text-center mt-5"><strong>Voting</strong></h1>
+      <h3 className="text-center">Click like to submit your vote!</h3>
+      <h3 className="text-center mb-5">You may only vote <em>ONCE</em> per idea. There are no take-backs <em>Choose wisely!</em></h3>
       {ideas.map(idea => <VoteList idea={idea} key={idea.ideaId}/>)}
       {/*<div key={vote.voteIdeaId}></div>*/}
       {/*<Button size="lg" variant="primary" type="submit">Submit Voting</Button>*/}
