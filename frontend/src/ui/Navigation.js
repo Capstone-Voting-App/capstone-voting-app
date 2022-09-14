@@ -58,9 +58,10 @@ export function Navigation() {
           <Nav>
             <Nav.Link href="./Voting">Voting</Nav.Link>
           </Nav>
+          {auth?.profileIsInstructor && (
           <Nav>
             <Nav.Link href="./Instructor">Instructor</Nav.Link>
-          </Nav>
+          </Nav>)}
           {auth !== null && (
             <>
               <NavDropdown className="nav-link navbar-username" title={auth?.profileName ?? ""} >

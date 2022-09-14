@@ -12,6 +12,7 @@ import { ideaRoute } from './apis/idea/idea.route'
 import { voteRoute } from './apis/vote/vote.route'
 import { rankRoute } from './apis/rank/rank.route'
 import { SignOutRoute } from './apis/sign-out/signout.route'
+import { profileRoute } from './apis/profile/profile.route'
 
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
@@ -54,6 +55,7 @@ export class App {
         this.app.use('/apis/idea', ideaRoute)
         this.app.use('/apis/vote', voteRoute)
         this.app.use('/apis/rank', rankRoute)
+        this.app.use('/apis/profile', profileRoute)
     }
     // starts the server and tells the terminal to post a message that the server is running and on what port
     public async listen (): Promise<void> {

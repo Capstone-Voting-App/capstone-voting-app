@@ -6,9 +6,9 @@ import { SignIn } from './SignIn'
 import { Navigation } from './Navigation'
 import { Home } from './Home'
 import { UserInput } from './UserInput'
-import { Ranking } from './Ranking'
+import { Ranking } from './ranking/Ranking'
 import { Voting } from './Voting'
-import { Instructor } from './Instructor'
+import { Instructor } from './instructor/Instructor'
 import { Provider } from 'react-redux'
 
 

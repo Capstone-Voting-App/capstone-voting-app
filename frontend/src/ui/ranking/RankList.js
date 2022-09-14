@@ -4,16 +4,6 @@ import React from 'react'
 
 export const RankList = ({idea})=> {
 
-  const dispatch = useDispatch()
-
-  // const clickLike = () => {
-  //   httpConfig.post("/apis/rank/", {rankProfileId: profile.ProfileId})
-  //     .then(reply => {
-  //       if (reply.status === 200) {
-  //         dispatch(setIdeasByProfileCohort())
-  //       }
-  //     });
-  // }
   return (
     <div className="container">
       <Row>
