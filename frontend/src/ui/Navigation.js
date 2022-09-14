@@ -72,7 +72,7 @@ export function Navigation() {
           </Nav>)}
           {auth !== null && (
             <>
-              <NavDropdown className="ms-auto nav-link navbar-username" title={auth?.profileName ?? ""} >
+              <NavDropdown className="me-5 ms-auto nav-link navbar-username" title={auth?.profileName ?? ""} >
                 <div className="dropdown-item">
                   <Link to={`/profile/${auth?.profileId}`} className="btn btn-outline-dark">
                     <PersonBadge/>&nbsp;&nbsp;My Profile
