@@ -1,0 +1,22 @@
+.bgColor {
+    background-color: #003a70;
+    color: #f6be00
+}
+
+.resetBg {
+    background-color: #408ADB
+}
+
+Nav {
+    font-size: 2rem;
+    margin-right: 10px;
+    font-weight: lighter;
+}
+
+#diver {
+    border-color: #f6be00;
+}
+
+h1 {
+    color: #003a70
+}
