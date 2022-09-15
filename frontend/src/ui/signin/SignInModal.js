@@ -3,8 +3,11 @@ import {Button} from "react-bootstrap";
 import {Modal} from "react-bootstrap";
 import { SignInForm } from './SignInForm'
 
-
 export const SignInModal = () => {
+  const button = {
+    backgroundColor: "black",
+    color: "#f6be00"
+  }
   // const {handleShow, handleClose, show} = props
   const [show, setShow] = useState(false);
 
@@ -13,7 +16,7 @@ export const SignInModal = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button style={button} onClick={handleShow}>
         Sign In
       </Button>
 

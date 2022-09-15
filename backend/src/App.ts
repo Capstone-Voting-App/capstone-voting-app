@@ -5,6 +5,7 @@ import session from 'express-session'
 import { createClient } from 'redis'
 import RedisConnect from 'connect-redis'
 import { signupRoute } from './apis/sign-up/signup.route'
+// @ts-ignore
 import helmet from 'helmet'
 import {signInRoute} from "./apis/sign-in/signin.route";
 import { ideaRoute } from './apis/idea/idea.route'

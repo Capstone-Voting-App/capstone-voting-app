@@ -10,6 +10,7 @@ import { Ranking } from './ranking/Ranking'
 import { Voting } from './Voting'
 import { Instructor } from './instructor/Instructor'
 import { Provider } from 'react-redux'
+import "./app.css"
 
 export const App = (store) => (
   <>
@@ -27,6 +28,5 @@ export const App = (store) => (
         </Routes>
       </BrowserRouter>
     </Provider>
-
   </>
 )
